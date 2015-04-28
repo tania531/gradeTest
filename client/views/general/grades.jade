@@ -1,0 +1,26 @@
+h3 GRADES
+
+
+form(name='gradeForm', novalidate)
+  .form-group
+    label(for='value')
+    input.form-group#score(type='text', name='score', ng-model='grade.score')
+    button.button.btn.btn-success.btn-xs(type='submit', ng-click='addGrade(grade)') Add Grade
+    
+  .form-group
+    label(for='course')
+      select.form-control#courses(name='courseName', ng-model='course.title')
+        option(ng-repeat='course in afCourses') {{course.title}}
+    button.button.btn.btn-success.btn-xs(type='submit', ng-click='addCourse(course)') Assign Course
+
+.row
+  .col-xs-8    
+    table.table.table-striped
+      tr
+        td Course Name:
+        td Grade:
+      tr(ng-repeat='course in afCourses')
+        td  {{course.title}}
+        td(ng-repeat='grade in afGrades') {{grade.score}}
+        td  {{course.createdAt | date:'yyyy-MM-dd @ h:mma'}}
+    

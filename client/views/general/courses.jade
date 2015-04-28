@@ -1,0 +1,22 @@
+h3 COURSES
+
+form(name='courseForm', novalidate)
+  .form-group
+    label(for='title')
+    input.form-group#title(type='text', name='title', ng-model='course.title')
+    button.button.btn.btn-success.btn-xs(type='submit', ng-click='addCourse(course)') Create Course
+    
+.row
+  .col-xs-8    
+    table.table.table-striped
+      tr
+        td Course Name:
+        td Created At:
+        td Update
+        td Remove
+      tr(ng-repeat='course in afCourses')
+        td  {{course.title}}
+        td  {{course.createdAt | date:'yyyy-MM-dd @ h:mma'}}
+        td: button.btn.btn-danger.btn-xs(ng-click='editCourse(course)') Edit
+        td: button.btn.btn-danger.btn-xs(ng-click='deleteCourse(course)') Delete
+    

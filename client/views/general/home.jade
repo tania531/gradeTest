@@ -1,1 +1,14 @@
 h3 HOME
+
+.row
+  .col-xs-8    
+    table.table.table-striped
+      tr
+        td Course Name:
+        td Created At:
+        td Grade:
+      tr(ng-repeat='course in afCourses')
+        td  {{course.title}}
+        td  {{course.createdAt | date:'yyyy-MM-dd @ h:mma'}}
+        td(ng-repeat='grade in afGrades')  {{grade.score}}
+    
